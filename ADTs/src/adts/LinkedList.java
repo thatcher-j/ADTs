@@ -37,11 +37,21 @@ package adts;
         
         public void find (Object o)
         {
-            current = head.getPointer ();
-            
-            while ((current.getData () != o) && (current.getData () != null))
+            if (current.getData() != o)
             {
-                current = current.getPointer();
+                Node temp = current;
+                current = head.getPointer ();
+
+                while ((current.getData () != o) && (current.getPointer () != null))
+                {
+                    current = current.getPointer();
+                }
+
+                if (current.getData () != o)
+                {
+                    System.out.println ("Could not find.");
+                    current = temp;
+                }
             }
         }
         
@@ -111,14 +121,17 @@ package adts;
             temp = temp.getPointer();
             
             head.editPointer(temp);
+            current = temp;
         }
         
         public void deleteLast ()
         {
+            //Node temp = current;
             Node prev = current;
             
-            if (current.getPointer () != null) //if currently on last element
+            if (current.getPointer () == null) //if currently on last element
             {
+                //Node prev = current;
                 current = head.getPointer();
                 
                 while (current.getPointer () != prev)
@@ -128,7 +141,7 @@ package adts;
             }
             else //if not
             {
-                while (current.getData () != null)
+                while (current.getPointer () != null)
                 {
                     prev = current;
                     current = current.getPointer ();
@@ -136,6 +149,7 @@ package adts;
             }
             
             prev.editPointer (null);
+            //current = temp;
             current = prev;
         }
         
