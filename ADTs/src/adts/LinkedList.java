@@ -34,6 +34,21 @@ package adts;
         {
             return current.getData ();
         }
+        
+        public void find (Object o)
+        {
+            current = head.getPointer ();
+            
+            while ((current.getData () != o) && (current.getData () != null))
+            {
+                current = current.getPointer();
+            }
+        }
+        
+        public boolean isEmpty ()
+        {
+            return (head.getPointer () == null);
+        }
  	
  	// ********** mutators **********
         public void next ()
