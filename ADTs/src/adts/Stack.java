@@ -1,10 +1,10 @@
 /* **********************************************************
- * Programmer:	Rob Sveinson
- * Class:		CS20S
+ * Programmer:  Joshua R. Thatcher
+ * Class:		CS40S
  * 
- * Assignment:	aX  qY
+ * Assignment:	ADTs
  *
- * Description:	describe the class you are creating
+ * Description:	Stack data type class
  *
  * 
  * *************************************************************
@@ -32,37 +32,27 @@ import java.util.ArrayList;
         }
         
  	// ********** accessors **********
-        public Object peek ()
+        public Object peek () //checks the top element of the stack without removing it
         {
             return (obj.get(obj.size() - 1));
         }
         
-        public Boolean isEmpty ()
+        public boolean isEmpty () //checks if there is anything in the stack
         {
-             return obj.get (0) == null;
+            return (obj.size() == 0);
         }
  	
  	// ********** mutators **********
-        public void push (Object o)
+        public void push (Object o) //add a new object to the top
         {
             obj.add (o);
         }
         
-        public Object pop ()
+        public Object pop () //takes the current top and returns the value
         {
             Object o = obj.get(obj.size() - 1);
             obj.remove(obj.size() - 1); 
-            //printOut ();
             return o;
-        }
-        
-        public void printOut () //FOR TESTING. REMOVE WHEN FINISHED
-        {
-            
-            for (int i = 0; i < obj.size (); i++)
-            {
-                System.out.println (obj.get(i));
-            }
         }
  
  }  // end class
