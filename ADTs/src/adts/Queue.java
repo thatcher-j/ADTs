@@ -1,10 +1,10 @@
 /* **********************************************************
- * Programmer:	Rob Sveinson
- * Class:		CS20S
+ * Programmer:	Joshua R. Thatcher
+ * Class:		CS40S
  * 
- * Assignment:	aX  qY
+ * Assignment:	ADTs
  *
- * Description:	describe the class you are creating
+ * Description:	Queue data type class 
  *
  * 
  * *************************************************************
@@ -29,22 +29,22 @@ import java.util.*;
         }
  	
  	// ********** accessors **********
- 	public Object peek ()
+ 	public Object peek () //checks the top element in the queue
         {
             return (obj.get(obj.size() - 1));
         }
         
-        public Boolean isEmpty ()
+        public boolean isEmpty () //checks if the queue is empty
         {
-             return obj.get (0) == null;
+            return (obj.size() == 0);
         }
         
  	// ********** mutators **********
-        public void enqueue (Object o)
+        public void enqueue (Object o) //add a new element to the queue
         {
             obj.add (o);
             
-            for (int i = 0; i < obj.size () - 1; i++)
+            for (int i = 0; i < obj.size () - 1; i++) //cycle through the queue until everything is higher than o
             {
                 Object temp = obj.get(0);
                 obj.add (temp);
@@ -52,18 +52,9 @@ import java.util.*;
             }
         }
         
-        public void dequeue ()
+        public void dequeue () //remove the top element
         {
             obj.remove(obj.size() - 1);
         }
-        
-        public void printOut () //FOR TESTING. REMOVE WHEN FINISHED
-        {
-            for (int i = 0; i < obj.size (); i++)
-            {
-                System.out.println (obj.get(i));
-            }
-        }
-        
  
  }  // end class
